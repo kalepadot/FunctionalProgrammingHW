@@ -32,7 +32,6 @@
 //Refactor v2
 
 const changeState = (prop) => {
-
   return (value) => {
     return (state) => ({
       ...state,
@@ -44,4 +43,8 @@ const changeState = (prop) => {
 const feed = changState("soil");
 const hydrate = changeState("water");
 const giveLight = changeState("light");
+///additional examples:
+const blueFood = changeState("soil")(5)
+const greenFood = changeState("soil")(10)
+const yuckyFood = changeState("soil")(-5)
  
