@@ -52,7 +52,10 @@ const yuckyFood = changeState("soil")(-5)
 //  function for storing state
 
 const storeState = () => {  
-  let currentState = {};    //storeState's only job is to store the currentState of an object
+  // let currentState = initialState;
+  //(remove initial state as storeStates argument) 
+  //let currentState = { soil: 0, light: 0, water: 0 };    //storeState's only job is to store the currentState of an object
+  let currentState = {};
   return (stateChangeFunction) => {   //will specify the exact change that should be made to currentState
     const newState = stateChangeFunction(currentState); //creates a new version of currentState specific to what its doing
     currentState = {...newState};   //each time our annon function is called (inner function stateChangeFunction) our currentState (inner function of our outer function storeState) will be mutated // updates currentState. makes a copy of newState and assignes it to currentState using spread opperator
@@ -65,8 +68,14 @@ const storeState = () => {
 const stateChanger = storeState();
 const fedPlant = stateChanger(blueFood);
 const plantFedAgain = stateChanger(greenFood);
+const unFedPlant = stateChanger(yuckyFood);
+console.log(fedPlant);
 console.log(plantFedAgain);
-
+console.log(unFedPlant);
+//new plant
+const newPlant = storeState();
+const fedzPlant = newPlant(blueFood);
+console.log(fedzPlant);
 // seems like this function already lives inside stateChanger from the const above ^
 
 // (stateChangerFunction) => {
