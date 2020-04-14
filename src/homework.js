@@ -40,10 +40,10 @@ const changeState = (prop) => {
   }
 }
 
-const feed = changState("soil");
+const feed = changeState("soil");
 const hydrate = changeState("water");
 const giveLight = changeState("light");
-///additional examples:
+// ///additional examples:
 const blueFood = changeState("soil")(5)
 const greenFood = changeState("soil")(10)
 const yuckyFood = changeState("soil")(-5)
@@ -63,9 +63,14 @@ const storeState = () => {
 // Step one seems to be: build a template, 2: build a new version of that function to have a specific use. 
 
 const stateChanger = storeState();
+const fedPlant = stateChanger(blueFood);
+console.log(fedPlant);
 
-(stateaChangerFunction) => {
-  const newState = stateChangeFunction(currentState);
-  currentState = {...newState};
-  return newState;
-}
+// seems like this function already lives inside stateChanger from the const above ^
+
+// (stateChangerFunction) => {
+//   const newState = stateChangeFunction(currentState);
+//   currentState = {...newState};
+//   return newState;
+// }
+
