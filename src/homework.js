@@ -64,7 +64,8 @@ const storeState = () => {
 
 const stateChanger = storeState();
 const fedPlant = stateChanger(blueFood);
-console.log(fedPlant);
+const plantFedAgain = stateChanger(greenFood);
+console.log(plantFedAgain);
 
 // seems like this function already lives inside stateChanger from the const above ^
 
